@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home page
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('home_app.static', filename= 'css/home.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="welcome">
+    <p class="welcome-text">Представляємо вам <span>Освітницький комплекс</span></p>
+    <h1 class="quote">Зручно, Швидко, Актуально</h1>
+    <div class="line"></div>
+    <h2 class="welcome-information">GPTQuiz - це платформа для <span>створення</span>, <span>проходження</span> <br> та <span>аналізу </span>вікторин</h2>
+</div>
+{% endblock %}

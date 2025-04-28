@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{url_for('user_app.static', filename='css/login.css')}}">
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <h2>Вхiд</h2>
+    <div class="inputs">
+        <input type="text" name="username" placeholder="Логін *" required>
+        <input type="password" name="password" placeholder="Пароль *" required>
+    </div>
+    <div class="submit">
+        <button>Увiйти</button>
+        <p>Не маєте аккаунту? <a href="">Зареєструавитись</a></p>
+    </div>
+</form>
+{% endblock %}
