@@ -1,0 +1,52 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}  {% endblock %} | GPTQuiz</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/base_admin.css') }}">
+        {% block head %} 
+        {% endblock %}
+    </head>
+    <body>
+        <aside>
+            <h1>
+                GPTQuiz
+            </h1>
+            
+            <button>
+                + Створити
+            </button>
+
+            <div class="links">
+                <a href="">
+                    <img src="{{ url_for('static', filename= 'images/discover.svg') }}">
+                    <p>Пошук</p>
+                </a>
+                <a href="">
+                    <img src="{{ url_for('static', filename= 'images/library.svg') }}">
+                    <p>Бібліотека</p>
+                </a>
+                <a href="">
+                    <img src="{{ url_for('static', filename= 'images/history.svg') }}">
+                    <p>Історія</p>
+                </a>
+                <a href="">
+                    <img src="{{ url_for('static', filename= 'images/reports.svg') }}">
+                    <p>Звіти</p>
+                </a>
+                <a href="" class="gpt-quiz-ai">
+                    <img src="{{ url_for('static', filename= 'images/ai.svg') }}">
+                    <p>GPTQuiz AI</p>
+                </a>
+            </div>
+        </aside>
+        <div class="nav">
+            <a href="">Введіть код</a>
+            <p id="username">Username</p>
+            <a href="" id="logout"></a>
+        </div>
+        {% block content %}
+        
+        {% endblock %}
+    </body>
+</html>

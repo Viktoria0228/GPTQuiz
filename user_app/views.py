@@ -18,7 +18,7 @@ def render_signup():
         try:
             DATABASE.session.add(user)
             DATABASE.session.commit()
-            return flask.redirect('/')
+            return flask.redirect('/login/')
         except:
             return "Не вдалося створити користувача"  
             
