@@ -1,6 +1,10 @@
 import flask
+import flask_login
+
 from .models import User
+from project import login_manager
 from project.settings import DATABASE
+
 
 def render_signup():
     if flask.request.method == 'POST':
@@ -24,4 +28,9 @@ def render_signup():
 
 
 def render_login():
+    if flask.request.method == "POST":
+        for user in User.query.filter_by(login = flask.request.form['login']):
+            if user.password == flask.request.form['password']:
+                flask_login.login_user(user)
+                return flask.redirect('/')
     return flask.render_template(template_name_or_list= 'login.html')
