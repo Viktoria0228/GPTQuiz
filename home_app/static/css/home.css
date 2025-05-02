@@ -1,0 +1,40 @@
+.welcome{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding-top:45px;
+}
+.welcome-text{
+    color: white;
+    font-family: "inter";
+    font-size: 35px;
+    font-weight: 300;
+}
+span{
+    color: #B479ED;
+}
+.quote{
+    color: white;
+    font-family: "inter";
+    font-size: 60px;
+    width: 800px;
+    height: 160px;
+    text-align: center;
+    line-height: 90px;
+}
+.line{
+    background-color: white;
+    height: 2px;
+    width: 900px;
+    margin: 25px;
+}
+.welcome-information{
+    color: white;
+    font-family: 'inter';
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+}
+
