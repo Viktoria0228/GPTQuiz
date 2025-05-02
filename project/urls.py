@@ -1,5 +1,5 @@
 from .settings import project
-import home_app, user_app
+import home_app, user_app, admin_app
 
 home_app.home_app.add_url_rule(
     rule= '/',
@@ -15,6 +15,11 @@ user_app.user_app.add_url_rule(
 user_app.user_app.add_url_rule(
     rule= '/login/',
     view_func= user_app.render_login,
+    methods= ["POST", "GET"]
+)
+admin_app.admin_app.add_url_rule(
+    rule= '/admin/',
+    view_func= admin_app.render_admin_page,
     methods= ["POST", "GET"]
 )
 project.register_blueprint(blueprint= user_app.user_app)
