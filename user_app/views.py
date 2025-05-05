@@ -32,5 +32,5 @@ def render_login():
         for user in User.query.filter_by(login = flask.request.form['login']):
             if user.password == flask.request.form['password']:
                 flask_login.login_user(user)
-                return flask.redirect('/')
+                return flask.redirect('/admin/')
     return flask.render_template(template_name_or_list= 'login.html')

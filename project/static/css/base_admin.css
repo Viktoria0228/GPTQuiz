@@ -3,7 +3,7 @@
     margin: 0;
 }
 body{
-    background-color: #3E3E3E;
+    background-color: #303030;
 }
 aside{
     position: fixed;
@@ -42,7 +42,7 @@ aside button{
 .links{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
 }
 .links a{
     display: flex;

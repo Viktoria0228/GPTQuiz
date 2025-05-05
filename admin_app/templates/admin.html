@@ -1,3 +1,4 @@
+
 {% extends 'base_admin.html' %}
 
 {% block title %}
@@ -8,3 +9,34 @@
     <link rel="stylesheet" href="{{ url_for('admin_app.static', filename= 'css/admin.css') }}">
 {% endblock %}
 
+{% block content %}
+    <div class="search">
+        <h2>
+            Яка тема вам потрібна?
+        </h2>
+        <form class="search-line">
+            <img src="{{ url_for('admin_app.static', filename= 'images/search.svg') }}">
+            <input type="text" placeholder="Знайдіть будь-яку тему...">
+            <button>
+                <img src="{{ url_for('admin_app.static', filename= 'images/search_button.svg') }}">
+            </button>
+        </form>  
+    </div>
+    <div class="active-quizes">
+        <h2>Популярні вікторини</h2>
+        <div class="quizes">
+            {% for quiz in quizes %}
+                <div class="quiz">
+                    <img src="{{ url_for('admin_app.static', filename= 'images/' + quiz.name ) }}">
+                    <h3>{{ quiz.name }}</h3>
+                    <p>{{ quiz.questions }}</p>
+                </div>
+            {% endfor %}
+            <div class="quiz">
+                <img src="{{ url_for('admin_app.static', filename= 'images/image.png') }}">
+                <h3>Додавання і віднімання дробів з різними знаменниками</h3>
+                <p>10 запитань</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
