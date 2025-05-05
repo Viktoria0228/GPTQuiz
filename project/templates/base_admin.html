@@ -41,9 +41,11 @@
             </div>
         </aside>
         <div class="nav">
-            <a href="">Введіть код</a>
+            <a href="" class="enter-code">Введіть код</a>
             <p id="username">Username</p>
-            <a href="" id="logout"></a>
+            <a href="/logout/" class="logout">
+                <img src="{{ url_for('admin_app.static', filename= 'images/logout.svg') }}">
+            </a>
         </div>
         {% block content %}
         
