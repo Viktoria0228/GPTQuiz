@@ -9,20 +9,19 @@
     </head>
     <body>
         <aside>
-            <h1>
+            <a class="title-logo" href="/admin/">
                 GPTQuiz
-            </h1>
+            </a>
             
             <button>
                 + Створити
             </button>
-
             <div class="links">
                 <a href="">
                     <img src="{{ url_for('static', filename= 'images/discover.svg') }}">
                     <p>Пошук</p>
                 </a>
-                <a href="">
+                <a href="/library/">
                     <img src="{{ url_for('static', filename= 'images/library.svg') }}">
                     <p>Бібліотека</p>
                 </a>
@@ -36,13 +35,13 @@
                 </a>
                 <a href="" class="gpt-quiz-ai">
                     <img src="{{ url_for('static', filename= 'images/ai.svg') }}">
-                    <p>GPTQuiz AI</p>
+                    <p class="ai-text">GPTQuiz AI</p>
                 </a>
             </div>
         </aside>
         <div class="nav">
             <a href="" class="enter-code">Введіть код</a>
-            <p id="username">{{username}}</p>
+            <a href="/profile/" id="username">{{username}}</a>
             <a href="/logout/" class="logout">
                 <img src="{{ url_for('admin_app.static', filename= 'images/logout.svg') }}">
             </a>

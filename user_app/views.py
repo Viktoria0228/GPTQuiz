@@ -34,3 +34,17 @@ def render_login():
                 flask_login.login_user(user)
                 return flask.redirect('/admin/')
     return flask.render_template(template_name_or_list= 'login.html')
+
+def render_profile():
+    user = flask_login.current_user
+    return flask.render_template(
+        template_name_or_list="profile.html",
+        user = user,
+        username = flask_login.current_user.login
+    )
+
+
+def logout():
+    flask_login.logout_user()
+    return flask.redirect("/")
+    

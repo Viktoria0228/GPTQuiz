@@ -1,5 +1,6 @@
 import flask_login
 from project.settings import DATABASE
+from library_app.models import Quiz
 
 class User(DATABASE.Model, flask_login.UserMixin):
     id= DATABASE.Column(DATABASE.Integer, primary_key= True)
@@ -9,3 +10,4 @@ class User(DATABASE.Model, flask_login.UserMixin):
     surname= DATABASE.Column(DATABASE.String(30), nullable= False)
     email= DATABASE.Column(DATABASE.String(255), nullable= False)
     password= DATABASE.Column(DATABASE.String(30), nullable= False)
+    created_quizes = DATABASE.relationship(Quiz, backref = 'user', lazy = True)
