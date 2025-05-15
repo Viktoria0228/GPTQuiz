@@ -53,5 +53,10 @@ execution_app.execution_app.add_url_rule(
     methods = ["POST", "GET"]
 )
 
+execution_app.execution_app.add_url_rule(
+    rule = '/execution/<enter_code>',
+    view_func = execution_app.render_enter_code,
+    methods = ["POST","GET"]
+)
 project.register_blueprint(blueprint = execution_app.execution_app)
 

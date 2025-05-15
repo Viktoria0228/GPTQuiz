@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    
+    background-image: url("../images/code_background2.jpg");
+    background-color: #1A1A1A;
+    background-size: cover;
+    background-position: center;
+
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+    padding-left: 10px;
+    
+}
+
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    justify-content: center;
+    
+}
+
+.form_enter{
+    width: 384px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 16px 5px 16px;
+    background-color: #2B2B2B;
+    border-radius: 18px;
+
+
+}
+
+.form_enter p{
+    font-family: "Inter";
+    font-weight: bold;     
+    font-size: 40px;
+    color: white;
+
+}
+
+.input_code{
+   width: 100%;
+   height: 143px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 0 13px 0 13px;
+   gap: 25px;
+   margin-top: 25px;
+   
+   
+}
+
+.input_code input{
+    width: 100%;
+    height: 68px;
+    text-align: center;
+    border: #8B8B8B solid 9px;
+    border-radius: 9px;
+    font-family: "Inter";
+    font-size: 24px;
+
+}
+
+.button_code{
+    width: 352px;
+    height: 46px;
+    text-align: center;
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #22CE00;
+    color: #262626;
+    border-radius: 32px;
+
+}
+
+.button_span{
+    display: inline-block;
+    width: 294px;
+}
+
+
+
+
+
+
+
+
+
+
