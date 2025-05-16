@@ -1,6 +1,6 @@
 import flask
 from project.settings import DATABASE
-
+import user_app
 class Question(DATABASE.Model):
     id = DATABASE.Column(DATABASE.Integer, primary_key = True)
 
@@ -16,6 +16,7 @@ class Question(DATABASE.Model):
 
 class Quiz(DATABASE.Model):
     id = DATABASE.Column(DATABASE.Integer, primary_key = True)
+    code_enter = DATABASE.Column(DATABASE.Integer)
     name = DATABASE.Column(DATABASE.String(100), nullable = False)
     description = DATABASE.Column(DATABASE.String, nullable = False)
     how_many_questions = DATABASE.Column(DATABASE.Integer, nullable = False)

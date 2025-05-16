@@ -25,7 +25,7 @@
                     <img src="{{ url_for('static', filename= 'images/library.svg') }}">
                     <p>Бібліотека</p>
                 </a>
-                <a href="">
+                <a href="/history/">
                     <img src="{{ url_for('static', filename= 'images/history.svg') }}">
                     <p>Історія</p>
                 </a>
@@ -40,7 +40,7 @@
             </div>
         </aside>
         <div class="nav">
-            <a href="" class="enter-code">Введіть код</a>
+            <a href="/execution/" class="enter-code">Введіть код</a>
             <a href="/profile/" id="username">{{username}}</a>
             <a href="/logout/" class="logout">
                 <img src="{{ url_for('admin_app.static', filename= 'images/logout.svg') }}">

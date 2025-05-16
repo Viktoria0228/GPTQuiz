@@ -1,5 +1,5 @@
 from .settings import project
-import home_app, user_app, admin_app, library_app, execution_app
+import home_app, user_app, admin_app, library_app, execution_app, history_app
 
 home_app.home_app.add_url_rule(
     rule= '/',
@@ -48,15 +48,21 @@ library_app.library_app.add_url_rule(
 project.register_blueprint(blueprint= library_app.library_app)
 
 execution_app.execution_app.add_url_rule(
-    rule = '/execution',
+    rule = '/execution/',
     view_func = execution_app.render_execution_page,
     methods = ["POST", "GET"]
 )
 
 execution_app.execution_app.add_url_rule(
-    rule = '/execution/<enter_code>',
+    rule = '/execution/<enter_code>/',
     view_func = execution_app.render_enter_code,
     methods = ["POST","GET"]
 )
 project.register_blueprint(blueprint = execution_app.execution_app)
 
+history_app.history_app.add_url_rule(
+    rule = '/history/',
+    view_func= history_app.render_history,
+    methods = ["POST", "GET"]
+)
+project.register_blueprint(blueprint = history_app.history_app)
