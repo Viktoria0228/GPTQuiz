@@ -1,6 +1,7 @@
 import flask
 from project.settings import DATABASE
-import user_app
+# from user_app.models import User
+
 class Question(DATABASE.Model):
     id = DATABASE.Column(DATABASE.Integer, primary_key = True)
 
@@ -21,4 +22,5 @@ class Quiz(DATABASE.Model):
     description = DATABASE.Column(DATABASE.String, nullable = False)
     how_many_questions = DATABASE.Column(DATABASE.Integer, nullable = False)
     author_id = DATABASE.Column(DATABASE.Integer, DATABASE.ForeignKey('user.id'))
+    # who_edit = DATABASE.relationship(User, backref = 'quiz', )
     questions = DATABASE.relationship(Question, backref = 'quiz', lazy = True)
