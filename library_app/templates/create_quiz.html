@@ -25,17 +25,16 @@
                 </div>
             </div>
         </div>
-        <form action="" method="post">
+        <form method="post">
             <button type="submit">Створити та зберегти</button>
         </form>
         <h1>{{ quiz.name }}</h1>
         <h2>{{ quiz.description }}</h2>
         
-        <p>{{ quiz.how_many_questions }}</p>
+        <p>{{ quiz.count_questions }}</p>
         
-        {% for question in quiz.questions %}
+        {% for question in questions %}
             <p>{{ question.name }}</p>
-            <br>
         {% endfor %}
     </body>
 </html>
