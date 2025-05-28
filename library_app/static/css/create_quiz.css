@@ -168,6 +168,7 @@ main{
     border: solid white 1px;
     border-radius: 5px;
     text-align: center;
+    align-content: center;
    
     font-size: clamp(10px, 1vw, 60px);
     color: white;
