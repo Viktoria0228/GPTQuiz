@@ -22,5 +22,4 @@ class Quiz(DATABASE.Model):
     description = DATABASE.Column(DATABASE.String, nullable = False)
     count_questions = DATABASE.Column(DATABASE.Integer, nullable = False)
     author_id = DATABASE.Column(DATABASE.Integer, DATABASE.ForeignKey('user.id'))
-    # who_edit = DATABASE.relationship(User, backref = 'quiz', )
     questions = DATABASE.relationship(Question, backref = 'quiz', lazy = True)
