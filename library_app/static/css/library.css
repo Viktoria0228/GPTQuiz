@@ -1,3 +1,4 @@
+
 .created-by-me-create{
     position: relative;
     top: 45px;
@@ -7,6 +8,7 @@
     justify-content: center;
     align-items: center;
     gap: 1050px;
+    background-color: 262626;
 }
 .created-by-me-create h2{
     font-family: 'Inter';

@@ -1,0 +1,47 @@
+.passed-by-me{
+    width: 1270px;
+    height: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.passed-by-me h2{
+    font-family: "Inter";
+    font-size: 16px;
+    color:  white;
+}
+.quiz{
+    margin-top: 100px;
+    width: 1270px;
+    height: 135px;
+    background-color: 262626;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+.quiz img{
+    height: 135px;
+    width: 250px;
+}
+.info{
+    width: 60%;
+    font-family: "Inter";
+    font-size: 20px;
+    color: white;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+form button{   
+    background-color: 262626;
+    border: none;
+    margin-bottom: 10px;
+}
+form img{
+    border-radius: 50%;
+    width: 10px;
+    height: 20px;
+    
+}
