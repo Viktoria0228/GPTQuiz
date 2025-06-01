@@ -15,7 +15,6 @@
 
 
         <main>
-
             <div class="main-creation">
                 <div class="sidebar">
                     <p>Почати з ...</p>
@@ -32,46 +31,73 @@
                 </div>
             </div>
 
-
             
+            {% if not create_question %}
+                <div class = 'create-question'>
+                    <h2 class = 'welcome-create-text'>Знайдіть готові вікторини на вашу тему, створені іншими користувачами.</h2>
+                    <div class="search-line">
+                        <img src="{{ url_for('admin_app.static', filename= 'images/search.svg') }}">
+                        <input type="text" placeholder="Знайдіть будь-яку тему...">
+                        <button>
+                            <img src="{{ url_for('admin_app.static', filename= 'images/search_button.svg') }}">
+                        </button>
+                    </div>  
 
-            <div class = 'main-create-block'>
-                <h1>Створення запитання з однією відповіддю</h1>
-
-                <div class="create-block">
-
-                    <textarea class = 'input-question'  placeholder="Введіть запитання..."></textarea>
+                    <h2 class="choose-question">Або виберіть тип запитання, щоб створити запитання</h2>
                     
-                    <div class="answers-block">
+                    <form method="post" class ="type-questions">
+                        <button name="button" value="one_answer" type="submit" class = 'type-request'>
+                            <img src="{{ url_for('library_app.static', filename = 'images/1_answer_question.png' )}}" alt="">
+                            <h3>Одна відповідь</h3>
+                        </button>
 
-                        <div class="answer-block1">
-                            <img src="" alt="">
-                            <textarea  class="block1" placeholder="Введіть варіант відповіді..."></textarea>
+                        <button name='button' value="one_answer" type="submit" class ="type-request" >
+                            <img src="{{ url_for('library_app.static', filename = 'images/1_answer_question.png' )}}" alt="">
+                            <h3>Одна відповідь</h3>
+                        </button>
+
+                        <button name = 'button' value="one_answer" type="submit" class ="type-request" >
+                            <img src="{{ url_for('library_app.static', filename = 'images/1_answer_question.png' )}}" alt="">
+                            <h3>Одна відповідь</h3>
+                        </button>
+                    </form>
+                </div>
+            {% else %}
+                {% if question == "One answer" %}
+                    <form method="post" class = 'main-create-block'>
+                        <h1>Створення запитання з однією відповіддю</h1>
+
+                        <div class="create-block">
+
+                            <textarea name = 'question' class = 'input-question'  placeholder="Введіть запитання..."></textarea>
+                            
+                            <div class="answers-block">
+
+                                <div class="answer-block1">
+                                    <img src="" alt="">
+                                    <textarea name = 'answer1' class="block1" placeholder="Введіть варіант відповіді..."></textarea>
+                                </div>
+
+                                <div class="answer-block2">
+                                    <img src="" alt="">
+                                    <textarea name = 'answer2' class="block2" placeholder="Введіть варіант відповіді..."></textarea>
+                                </div>
+
+                                <div class="answer-block3">
+                                    <img src="" alt="">
+                                    <textarea name = 'answer3' class = 'block3' placeholder="Введіть варіант відповіді..."></textarea>
+                                </div>
+
+                                <div class="answer-block4">
+                                    <img src="" alt="">
+                                    <textarea  name = 'answer4' class="block4" placeholder="Введіть варіант відповіді..."></textarea>
+                                </div>
                         </div>
-
-                        <div class="answer-block2">
-                            <img src="" alt="">
-                            <textarea class="block2" placeholder="Введіть варіант відповіді..."></textarea>
-                        </div>
-
-                        <div class="answer-block3">
-                            <img src="" alt="">
-                            <textarea class = 'block3' placeholder="Введіть варіант відповіді..."></textarea>
-                        </div>
-
-                        <div class="answer-block4">
-                            <img src="" alt="">
-                            <textarea  class="block4" placeholder="Введіть варіант відповіді..."></textarea>
-                        </div>
-
-                    </div>
-
-              
-
-            </div>
-             <form action="" method="post" class = 'button-save'>
-                <button type="submit">Створити та зберегти</button>
-            </form>
+                        <input type="hidden" value="enter_answer" name = 'type_question'>
+                        <button name="button" class = 'button-save' type="submit">Створити та зберегти</button>
+                    </form>
+                {% endif %}
+            {% endif %}
 
 
                
@@ -79,11 +105,6 @@
 
            
 
-            <h1>{{ quiz.name }}</h1>
-            <h2>{{ quiz.description }}</h2>
-            
-            <p>{{ quiz.how_many_questions }}</p>
-            
             {% for question in quiz.questions %}
                 <p>{{ question.name }}</p>
                 <br>

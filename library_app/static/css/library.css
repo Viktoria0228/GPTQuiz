@@ -1,3 +1,4 @@
+
 .created-by-me-create{
     position: relative;
     top: 45px;
@@ -7,6 +8,7 @@
     justify-content: center;
     align-items: center;
     gap: 1050px;
+    background-color: 262626;
 }
 .created-by-me-create h2{
     font-family: 'Inter';
@@ -14,19 +16,23 @@
     font-weight: 300;
     font-size: 24px;
 }
-.created-by-me-create a {
+.created-by-me-create button {
     width: 135px;
     height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #22CE00;
+    border: none;
     border-radius: 10px;
-    font-family: 'Inter';
     color: white;
+    font-family: 'Inter';
     font-weight: 500;
     font-size: 16px;
     text-decoration: none;
+    cursor: pointer;
+
+    
 }
 
 .created-by-me{

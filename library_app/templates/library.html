@@ -11,18 +11,24 @@ Library
 {% block content %}
 <div class = "created-by-me-create">
     <h2>Створено мною</h2>
-    <a href = "/create-quiz/">+ Створити</a>
+    <button id = 'createQuiz'>
+        <input type="hidden" id="quizCreate" value="{{ create_quiz_id }}">
+        <a href="/create-quiz/">
+            + Створити
+        </a>
+    </button>
 </div>
 <div class = "created-by-me">
-        <h1>Давайте створемо вашу першу вікторину! </h1>
-        <form class="search-line">
-            <img src="{{ url_for('admin_app.static', filename= 'images/search.svg') }}">
-            <input type="text" placeholder="Знайдіть будь-яку тему...">
-            <button>
-                <img src="{{ url_for('admin_app.static', filename= 'images/search_button.svg') }}">
-            </button>
-        </form> 
-        <p>Або створіть його, використавши <span>GPTQuiz AI</span></p>
-
+    <h1>Давайте створемо вашу першу вікторину! </h1>
+    <form class="search-line">
+        <img src="{{ url_for('admin_app.static', filename= 'images/search.svg') }}">
+        <input type="text" placeholder="Знайдіть будь-яку тему...">
+        <button>
+            <img src="{{ url_for('admin_app.static', filename= 'images/search_button.svg') }}">
+        </button>
+    </form> 
+    <p>Або створіть його, використавши <span>GPTQuiz AI</span></p>
 </div>
+
+<script src="{{ url_for('library_app.static', filename = 'js/createQuiz.js')}}"></script>
 {% endblock %}

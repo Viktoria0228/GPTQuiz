@@ -20,7 +20,6 @@ class Quiz(DATABASE.Model):
     code_enter = DATABASE.Column(DATABASE.Integer)
     name = DATABASE.Column(DATABASE.String(100), nullable = False)
     description = DATABASE.Column(DATABASE.String, nullable = False)
-    how_many_questions = DATABASE.Column(DATABASE.Integer, nullable = False)
+    count_questions = DATABASE.Column(DATABASE.Integer, nullable = False)
     author_id = DATABASE.Column(DATABASE.Integer, DATABASE.ForeignKey('user.id'))
-    # who_edit = DATABASE.relationship(User, backref = 'quiz', )
     questions = DATABASE.relationship(Question, backref = 'quiz', lazy = True)
