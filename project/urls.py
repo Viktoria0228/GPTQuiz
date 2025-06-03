@@ -45,6 +45,14 @@ library_app.library_app.add_url_rule(
     view_func= library_app.render_create_quiz,
     methods= ["POST", "GET"]
 )
+
+library_app.library_app.add_url_rule(
+    rule= '/enter-answer/',
+    view_func= library_app.render_enter_answer,
+    methods= ["POST", "GET"]
+)
+
+
 project.register_blueprint(blueprint= library_app.library_app)
 
 execution_app.execution_app.add_url_rule(

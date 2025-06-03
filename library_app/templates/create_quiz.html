@@ -15,18 +15,16 @@
 
 
         <main>
-            <div class="main-creation">
-                <div class="sidebar">
-                    <p>Почати з ...</p>
-                    <div class="slides">
-                        <div class="slide">
-                            <img src="{{url_for('library_app.static', filename= 'images/ai.svg')}}" alt="">
-                            <h3 class="AI-button">Згенерувати за допомогою AI</h3>
-                        </div>
-                        <div class="slide">
-                            <img src="{{url_for('library_app.static', filename= 'images/plus.svg')}}" alt="">
-                            <h3>Створити з нуля</h3>
-                        </div>
+            <div class="sidebar">
+                <p>Почати з ...</p>
+                <div class="slides">
+                    <div class="slide">
+                        <img src="{{url_for('library_app.static', filename= 'images/ai.svg')}}" alt="">
+                        <h3 class="AI-button">Згенерувати за допомогою AI</h3>
+                    </div>
+                    <div class="slide">
+                        <img src="{{url_for('library_app.static', filename= 'images/plus.svg')}}" alt="">
+                        <h3>Створити з нуля</h3>
                     </div>
                 </div>
             </div>
@@ -64,7 +62,7 @@
                 </div>
             {% else %}
                 {% if question == "One answer" %}
-                    <form method="post" class = 'main-create-block'>
+                    <form action ='' method="post" class = 'main-create-block'>
                         <h1>Створення запитання з однією відповіддю</h1>
 
                         <div class="create-block">

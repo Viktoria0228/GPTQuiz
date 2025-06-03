@@ -107,3 +107,8 @@ aside button{
 .ai-text {
     color: #B26FFF;
 }
+
+textarea:focus, input:focus{
+  transition: all 0.2s ease-in-out;
+  outline:solid #B26FFF 1px ;
+}

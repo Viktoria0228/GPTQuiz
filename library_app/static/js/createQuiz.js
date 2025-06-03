@@ -1,10 +1,11 @@
 const createBtn = document.getElementById('createQuiz');
-const quizCreate = document.getElementById('quizCreate').value;
+
 
 
 
 console.log(document.cookie.split("; ")[1])
 createBtn.addEventListener('click', () => {
+    const quizCreate = document.getElementById('quizCreate').value
     if (document.cookie.split("; ")[1]){
         
     }
@@ -12,3 +13,5 @@ createBtn.addEventListener('click', () => {
         document.cookie =  `draft=${quizCreate}; path=/;`;
     }
 });
+
+

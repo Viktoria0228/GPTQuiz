@@ -69,3 +69,6 @@ def render_create_quiz():
         create_question = create_question
         )
             
+
+def render_enter_answer():
+    return flask.render_template(template_name_or_list='enter_answer.html')
