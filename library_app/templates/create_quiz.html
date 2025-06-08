@@ -3,17 +3,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Create Quiz</title>
-        <link rel="stylesheet" href="{{url_for('library_app.static',filename= 'css/create_quiz.css')}}">
+        <link rel="stylesheet" href="{{ url_for('library_app.static',filename= 'css/create_quiz.css') }}">
     </head>
     <body>
         <header>
             <a href="/library/"><img src="{{url_for('library_app.static',filename= 'images/arrow.svg')}}"></a>
             <p>Створення нової вікторини</p>
         </header>
-
-       
-
-
         <main>
             <div class="sidebar">
                 <p>Почати з ...</p>
@@ -28,8 +24,6 @@
                     </div>
                 </div>
             </div>
-
-            
             {% if not create_question %}
                 <div class = 'create-question'>
                     <h2 class = 'welcome-create-text'>Знайдіть готові вікторини на вашу тему, створені іншими користувачами.</h2>
@@ -49,9 +43,9 @@
                             <h3>Одна відповідь</h3>
                         </button>
 
-                        <button name='button' value="one_answer" type="submit" class ="type-request" >
-                            <img src="{{ url_for('library_app.static', filename = 'images/1_answer_question.png' )}}" alt="">
-                            <h3>Одна відповідь</h3>
+                        <button name='button' value="enter_answer" type="submit" class ="type-request" >
+                            <img src="{{ url_for('library_app.static', filename = 'images/enter_answer_question.png' )}}" alt="">
+                            <h3>Ввести відповідь</h3>
                         </button>
 
                         <button name = 'button' value="one_answer" type="submit" class ="type-request" >
@@ -72,45 +66,65 @@
                             <div class="answers-block">
 
                                 <div class="answer-block1">
-                                    <img src="" alt="">
+                                    <input type="radio" name="correct answer" class="correct-answer" id="correct1" value="1">
+                                    <label class="correct-label" for="correct1">
+                                        <img src="{{ url_for('library_app.static', filename = 'images/correct.png')}}">
+                                    </label>
                                     <textarea name = 'answer1' class="block1" placeholder="Введіть варіант відповіді..."></textarea>
                                 </div>
 
                                 <div class="answer-block2">
-                                    <img src="" alt="">
+                                    <input type="radio" name="correct answer" class="correct-answer" id="correct2" value="2">
+                                    <label class="correct-label"  for="correct2">
+                                        <img src="{{ url_for('library_app.static', filename = 'images/correct.png')}}">
+                                    </label>
                                     <textarea name = 'answer2' class="block2" placeholder="Введіть варіант відповіді..."></textarea>
                                 </div>
-
                                 <div class="answer-block3">
-                                    <img src="" alt="">
+                                    <input type="radio" name="correct answer" class="correct-answer" id="correct3" value="3">
+                                    <label class="correct-label"  for="correct3">
+                                        <img src="{{ url_for('library_app.static', filename = 'images/correct.png')}}">
+                                    </label>
                                     <textarea name = 'answer3' class = 'block3' placeholder="Введіть варіант відповіді..."></textarea>
                                 </div>
 
                                 <div class="answer-block4">
-                                    <img src="" alt="">
+                                    <input type="radio" name="correct answer" class="correct-answer" id="correct4" value="4">
+                                    <label class="correct-label"  for="correct4">
+                                        <img src="{{ url_for('library_app.static', filename = 'images/correct.png')}}">
+                                    </label>
                                     <textarea  name = 'answer4' class="block4" placeholder="Введіть варіант відповіді..."></textarea>
                                 </div>
                         </div>
-                        <input type="hidden" value="enter_answer" name = 'type_question'>
+                        <input type="hidden" value="one_answer" name = 'type_question'>
                         <button name="button" class = 'button-save' type="submit">Створити та зберегти</button>
                     </form>
+                {% elif question == "Enter answer" %}
+                    <form method="post" class = 'main-create-block'>
+                        <h1>Створення запитання з заповненням бланка</h1>
+                        <div class="all-block">
+                            <div class="create-block">
+                               <textarea name = 'question' class = 'input-question' placeholder="Введіть запитання..."></textarea>
+                            </div>
+                            <div class="enter-answer-div">
+                                <input type="text" class="enter-answer-input" name="answer1" id='enterAnswer' placeholder="введіть відповідь" id="">
+                            </div>
+                        </div>
+                        <input type="hidden" value="enter_answer"  name = 'type_question'>
+                        <div class="div-button-save">
+                            <button name="button" class = 'button-save' id = 'buttonAnswer' type="submit"  disabled>Створити та зберегти</button>
+                        
+                        </div>
+                </form>
                 {% endif %}
             {% endif %}
-
-
-               
-                
-
-           
-
             {% for question in quiz.questions %}
                 <p>{{ question.name }}</p>
                 <br>
             {% endfor %}
-
-
-
         </main>
         
+        <script src="{{ url_for('library_app.static',filename= 'js/enterAnswer.js') }}"></script>
+        <script src="{{ url_for('library_app.static',filename= 'js/highlightCorrect.js') }}"></script>
     </body>
 </html>

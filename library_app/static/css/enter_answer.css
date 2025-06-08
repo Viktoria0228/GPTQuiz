@@ -134,6 +134,8 @@ main{
     border-radius: 10px;
 }
 
+
+
 .main-create-block h1{
     font-size: clamp(2px, 1.3vw, 80px);
     color: white;

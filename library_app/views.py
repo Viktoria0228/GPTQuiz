@@ -18,16 +18,23 @@ def render_create_quiz():
         if flask.request.form['button'] == 'one_answer':
             question = 'One answer'
             create_question = True
+        elif flask.request.form['button'] == 'enter_answer':
+            question = 'Enter answer'
+            create_question = True
+        
+            
         else:
             type_question = flask.request.form['type_question']
-            if type_question == 'enter_answer':
+            if type_question == 'one_answer':
                 question = Question(
                     name = flask.request.form['question'],
-                    type = 'enter answer',
+                    type = 'one answer',
                     variant_1 = flask.request.form['answer1'],
                     variant_2 = flask.request.form['answer2'],
                     variant_3 = flask.request.form['answer3'],
                     variant_4 = flask.request.form['answer4'],
+
+                    correct_answer = flask.request.form['correct answer'],
 
                     quiz_id = int(flask.request.cookies.get("draft"))
                 )
@@ -37,6 +44,22 @@ def render_create_quiz():
                     return flask.redirect(flask.url_for('/create-quiz/'))
                 except:
                     print(Exception)
+            elif type_question == 'enter_answer':
+                question = Question(
+                    name = flask.request.form['question'],
+                    type = 'enter answer',
+                    variant_1 = flask.request.form['answer1'],
+                    correct_answer = flask.request.form['answer1'],
+                    quiz_id = int(flask.request.cookies.get('draft'))
+                )
+                try:
+                    DATABASE.session.add(question)
+                    DATABASE.session.commit()
+                    return flask.redirect(flask.url_for('/create-quiz/'))
+                except:
+                    print(Exception)
+
+         
     if flask.request.cookies.get("draft"):
         cookies = int(flask.request.cookies.get("draft"))
         quiz = Quiz.query.get(cookies)

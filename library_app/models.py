@@ -13,6 +13,8 @@ class Question(DATABASE.Model):
     variant_4 = DATABASE.Column(DATABASE.String(100), nullable = True)
     variant_5 = DATABASE.Column(DATABASE.String(100), nullable = True)
 
+    correct_answer = DATABASE.Column(DATABASE.JSON())
+
     quiz_id = DATABASE.Column(DATABASE.Integer, DATABASE.ForeignKey('quiz.id'))
 
 class Quiz(DATABASE.Model):
