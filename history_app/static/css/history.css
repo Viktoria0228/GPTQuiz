@@ -11,37 +11,73 @@
     font-size: 16px;
     color:  white;
 }
+.passed-quizes-by-me{
+    top: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:auto;
+    gap: 1vw;
+    
+}
 .quiz{
-    margin-top: 100px;
-    width: 1270px;
+    width: 80%;
     height: 135px;
-    background-color: 262626;
+    background-color: #262626;
     border-radius: 30px;
     overflow: hidden;
     display: flex;
     flex-direction: row;
 }
-.quiz img{
+.quiz-image{
     height: 135px;
-    width: 250px;
+    width: 20%;
 }
 .info{
     width: 60%;
     font-family: "Inter";
     font-size: 20px;
     color: white;
-    margin-left: 15px;
-    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 15px;
+    
 }
 
-form button{   
-    background-color: 262626;
-    border: none;
-    margin-bottom: 10px;
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 100%;
+    gap: 0.5vw;
 }
-form img{
-    border-radius: 50%;
-    width: 10px;
-    height: 20px;
+
+#view{   
+    background-color: #22CE00;
+    border: none;
+    border-radius: 45px;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+#delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
+    background-color: #464C66;
+    border: none;
+    border-radius: 45px;
+    padding: 10px;
+}
+
+#delete img{
+    width: 20px;
+    height: 20px;
 }

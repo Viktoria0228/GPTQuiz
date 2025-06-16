@@ -12,8 +12,17 @@
         </header>
         <main>
             <div class="sidebar">
-                <p>Почати з ...</p>
+                {% if not questions %}
+                    <p>Почати з ...</p>
+                {% else %}
+                    <p>Створені запитання:</p>
+                {% endif %}
                 <div class="slides">
+                    {% for question in questions %}
+                        <div class="slide">
+                            <h3>{{question.name}}</h3>
+                        </div>
+                    {% endfor %}
                     <div class="slide">
                         <img src="{{url_for('library_app.static', filename= 'images/ai.svg')}}" alt="">
                         <h3 class="AI-button">Згенерувати за допомогою AI</h3>
@@ -42,16 +51,16 @@
                             <img src="{{ url_for('library_app.static', filename = 'images/1_answer_question.png' )}}" alt="">
                             <h3>Одна відповідь</h3>
                         </button>
+                        <button name = 'button' value="multiple_answers" type="submit" class ="type-request" >
+                            <img src="{{ url_for('library_app.static', filename = 'images/1_answer_question.png' )}}" alt="">
+                            <h3>Декiлька відповідей</h3>
+                        </button>
 
                         <button name='button' value="enter_answer" type="submit" class ="type-request" >
                             <img src="{{ url_for('library_app.static', filename = 'images/enter_answer_question.png' )}}" alt="">
                             <h3>Ввести відповідь</h3>
                         </button>
 
-                        <button name = 'button' value="one_answer" type="submit" class ="type-request" >
-                            <img src="{{ url_for('library_app.static', filename = 'images/1_answer_question.png' )}}" alt="">
-                            <h3>Одна відповідь</h3>
-                        </button>
                     </form>
                 </div>
             {% else %}
@@ -115,7 +124,51 @@
                             <button name="button" class = 'button-save' id = 'buttonAnswer' type="submit"  disabled>Створити та зберегти</button>
                         
                         </div>
-                </form>
+                    </form>
+                {% elif question == "multiple answers" %}
+                    <form action ='' method="post" class = 'main-create-block'>
+                        <h1>Створення запитання з декількома відповідями</h1>
+
+                        <div class="create-block">
+
+                            <textarea name = 'question' class = 'input-question'  placeholder="Введіть запитання..."></textarea>
+                            
+                            <div class="answers-block">
+
+                                <div class="answer-block1">
+                                    <input type="checkbox" name="correct answer" class="correct-answer" id="correct1" value="1">
+                                    <label class="correct-label" for="correct1">
+                                        <img src="{{ url_for('library_app.static', filename = 'images/correct.png')}}">
+                                    </label>
+                                    <textarea name = 'answer1' class="block1" placeholder="Введіть варіант відповіді..."></textarea>
+                                </div>
+
+                                <div class="answer-block2">
+                                    <input type="checkbox" name="correct answer" class="correct-answer" id="correct2" value="2">
+                                    <label class="correct-label"  for="correct2">
+                                        <img src="{{ url_for('library_app.static', filename = 'images/correct.png')}}">
+                                    </label>
+                                    <textarea name = 'answer2' class="block2" placeholder="Введіть варіант відповіді..."></textarea>
+                                </div>
+                                <div class="answer-block3">
+                                    <input type="checkbox" name="correct answer" class="correct-answer" id="correct3" value="3">
+                                    <label class="correct-label"  for="correct3">
+                                        <img src="{{ url_for('library_app.static', filename = 'images/correct.png')}}">
+                                    </label>
+                                    <textarea name = 'answer3' class = 'block3' placeholder="Введіть варіант відповіді..."></textarea>
+                                </div>
+
+                                <div class="answer-block4">
+                                    <input type="checkbox" name="correct answer" class="correct-answer" id="correct4" value="4">
+                                    <label class="correct-label"  for="correct4">
+                                        <img src="{{ url_for('library_app.static', filename = 'images/correct.png')}}">
+                                    </label>
+                                    <textarea  name = 'answer4' class="block4" placeholder="Введіть варіант відповіді..."></textarea>
+                                </div>
+                        </div>
+                        <input type="hidden" value="multiple_answers" name = 'type_question'>
+                        <button name="button" class = 'button-save' type="submit">Створити та зберегти</button>
+                    </form>
                 {% endif %}
             {% endif %}
             {% for question in quiz.questions %}

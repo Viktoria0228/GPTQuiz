@@ -9,26 +9,37 @@ Library
 {% endblock %}
 
 {% block content %}
-<div class = "created-by-me-create">
-    <h2>Створено мною</h2>
-    <button id = 'createQuiz'>
-        <input type="hidden" id="quizCreate" value="{{ create_quiz_id }}">
-        <a href="/create-quiz/">
-            + Створити
-        </a>
-    </button>
-</div>
-<div class = "created-by-me">
-    <h1>Давайте створемо вашу першу вікторину! </h1>
-    <form class="search-line">
-        <img src="{{ url_for('admin_app.static', filename= 'images/search.svg') }}">
-        <input type="text" placeholder="Знайдіть будь-яку тему...">
-        <button>
-            <img src="{{ url_for('admin_app.static', filename= 'images/search_button.svg') }}">
+    <div class = "created-by-me-create">
+        <h2>Створено мною</h2>
+        <button id = 'createQuiz'>
+            <input type="hidden" id="quizCreate" value="{{ create_quiz_id }}">
+            <a href="/create-quiz/">
+                + Створити
+            </a>
         </button>
-    </form> 
-    <p>Або створіть його, використавши <span>GPTQuiz AI</span></p>
-</div>
+    </div>
+    
+    <div class = "created-by-me">
+        <h1>Давайте створемо вашу першу вікторину! </h1>
+        <form class="search-line">
+            <img src="{{ url_for('admin_app.static', filename= 'images/search.svg') }}">
+            <input type="text" placeholder="Знайдіть будь-яку тему...">
+            <button>
+                <img src="{{ url_for('admin_app.static', filename= 'images/search_button.svg') }}">
+            </button>
+        </form> 
+        <p>Або створіть його, використавши <span>GPTQuiz AI</span></p>
+    </div>
 
-<script src="{{ url_for('library_app.static', filename = 'js/createQuiz.js')}}"></script>
+    <div class="quizes">
+        {% for quiz in created_quizes %}    
+            <div class="quiz">
+                <h3>{{ quiz.name }}</h3>
+                <p>ID: {{ quiz.id }} </p>
+                <p>Кількість запитань: {{ quiz.count_questions }}</p>
+            </div>
+        {% endfor %}        
+    </div>
+
+    <script src="{{ url_for('library_app.static', filename = 'js/createQuiz.js')}}"></script>
 {% endblock %}

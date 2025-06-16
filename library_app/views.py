@@ -4,10 +4,13 @@ from project.settings import DATABASE
 
 def render_library():
     
+    
+    print(flask_login.current_user.created_quizes)
     return flask.render_template(
         'library.html',
         username = flask_login.current_user.login,
-        create_quiz_id = len(Quiz.query.all()) + 1
+        create_quiz_id = len(Quiz.query.all()) + 1,
+        created_quizes = flask_login.current_user.created_quizes
         )
 
 def render_create_quiz():
@@ -15,13 +18,18 @@ def render_create_quiz():
     question = None
     create_question = False
     if flask.request.method == 'POST':
+        quiz = Quiz.query.get(flask.request.cookies.get('draft'))
         if flask.request.form['button'] == 'one_answer':
             question = 'One answer'
             create_question = True
         elif flask.request.form['button'] == 'enter_answer':
             question = 'Enter answer'
             create_question = True
-        
+        elif flask.request.form['button'] == 'multiple_answers':
+            question = 'multiple answers'
+            create_question = True
+
+
             
         else:
             type_question = flask.request.form['type_question']
@@ -40,6 +48,7 @@ def render_create_quiz():
                 )
                 try:
                     DATABASE.session.add(question)
+                    quiz.count_questions += 1
                     DATABASE.session.commit()
                     return flask.redirect(flask.url_for('/create-quiz/'))
                 except:
@@ -54,12 +63,29 @@ def render_create_quiz():
                 )
                 try:
                     DATABASE.session.add(question)
+                    quiz.count_questions += 1
                     DATABASE.session.commit()
                     return flask.redirect(flask.url_for('/create-quiz/'))
                 except:
                     print(Exception)
-
-         
+            elif type_question == 'multiple_answers':
+                question = Question(
+                    name = flask.request.form['question'],
+                    type = 'multiple answers',
+                    variant_1 = flask.request.form['answer1'],
+                    variant_2 = flask.request.form['answer2'],
+                    variant_3 = flask.request.form['answer3'],
+                    variant_4 = flask.request.form['answer4'],
+                    correct_answer = flask.request.form.getlist('correct answer'),
+                    quiz_id = int(flask.request.cookies.get('draft'))
+                )
+                try:
+                    DATABASE.session.add(question)
+                    quiz.count_questions += 1
+                    DATABASE.session.commit()
+                    return flask.redirect(flask.url_for('/create-quiz/'))
+                except:
+                    print(Exception)
     if flask.request.cookies.get("draft"):
         cookies = int(flask.request.cookies.get("draft"))
         quiz = Quiz.query.get(cookies)
@@ -83,6 +109,7 @@ def render_create_quiz():
             except:
                 print(Exception)
     
+
     return flask.render_template(
         'create_quiz.html',
         username = flask_login.current_user.login,

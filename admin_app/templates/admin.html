@@ -24,11 +24,13 @@
     <div class="active-quizes">
         <h2>Популярні вікторини</h2>
         <div class="quizes">
-            {% for quiz in quizes %}
+            {% for quiz in quizes %}    
                 <div class="quiz">
-                    <img src="{{ url_for('admin_app.static', filename= 'images/' + quiz.name ) }}">
+                    <!-- <img src="{{ url_for('admin_app.static', filename= 'images/' + quiz.name ) }}"> -->
+                    <img src="{{ url_for('admin_app.static', filename= 'images/image.png') }}">
                     <h3>{{ quiz.name }}</h3>
-                    <p>{{ quiz.questions }}</p>
+                    <p>{{ quiz.count_questions }} запитань</p>
+                    <p>Author: {{ quiz.user.login }}</p>
                 </div>
             {% endfor %}
             <div class="quiz">
