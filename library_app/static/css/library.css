@@ -16,6 +16,7 @@
     font-weight: 300;
     font-size: 24px;
 }
+
 .created-by-me-create button {
     width: 135px;
     height: 45px;
@@ -29,12 +30,17 @@
     font-family: 'Inter';
     font-weight: 500;
     font-size: 16px;
-    text-decoration: none;
     cursor: pointer;
 
-    
 }
+.created-by-me-create button a{
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    /* height: 100%; */
+    text-align: center;
 
+}
 .created-by-me{
     width: 100%;
     position: relative;

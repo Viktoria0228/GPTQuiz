@@ -1,5 +1,5 @@
 from .settings import project
-import home_app, user_app, admin_app, library_app, execution_app, history_app, reports_app
+import home_app, user_app, admin_app, library_app, execution_app, history_app, reports_app, search_app
 
 home_app.home_app.add_url_rule(
     rule= '/',
@@ -80,3 +80,9 @@ reports_app.reports_app.add_url_rule(
     view_func= reports_app.render_reports_page
 )
 project.register_blueprint(blueprint= reports_app.reports_app)
+
+search_app.search_app.add_url_rule(
+    rule = "/search/",
+    view_func = search_app.render_search,
+)
+project.register_blueprint(blueprint=search_app.search_app)
