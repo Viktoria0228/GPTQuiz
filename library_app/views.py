@@ -98,7 +98,6 @@ def render_create_quiz():
         else:
             quiz = Quiz(
                 name = "draft",
-                code_enter = 1234,
                 description = 'draft',
                 count_questions = 0,
                 author_id = flask_login.current_user.id
